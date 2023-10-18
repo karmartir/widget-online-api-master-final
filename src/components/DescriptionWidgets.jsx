@@ -55,7 +55,7 @@ const DescriptionWidgets = ({weather, units}) => {
             unit: windUnit,
         },
     ];
-    console.log(weather)
+
 
     return (
         <div className="section section_descriptionWidgets">
