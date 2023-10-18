@@ -1,4 +1,4 @@
-const API_KEY = 'type your API KEY here !!!!';
+const API_KEY = 'Type your AP Key here!!!';
 
 const getFormattedWeatherData = async (city, units = 'imperial') => {
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`;
@@ -7,7 +7,7 @@ const getFormattedWeatherData = async (city, units = 'imperial') => {
         const response = await fetch(URL);
 
         if (!response.ok) {
-            throw new Error('Weather data not found for the provided city.');
+            new Error('Weather data not found for the provided city.');
         }
 
         const data = await response.json();
