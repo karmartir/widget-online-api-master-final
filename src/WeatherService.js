@@ -1,4 +1,4 @@
-const API_KEY = 'f1fdf590af7a238d4f190c6132dc887d'
+const API_KEY = 'write your API KEY here!!!'
 
 const getFormattedWeatherData = async (city, units = 'imperial') => {
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`;
