@@ -6,8 +6,8 @@ import {getFormattedWeatherData} from "./WeatherService";
 
 function App() {
     const [city, setCity] = useState('Brooklyn');
-    const[weather, setWeather] = useState(null);
-    const[units, setUnits] = useState('metric');
+    const [weather, setWeather] = useState(null);
+    const [units, setUnits] = useState('metric');
 
 
     useEffect(() => {
@@ -27,18 +27,13 @@ function App() {
     };
 
     const enterKeyPressed = (e) => {
-        /*тут надо подумать, как доработать проверку на "вшивость" нужно блокировать запуск пустой строки*/
-
-            console.log(e)
-            if (e.keyCode === 13) {
-                setCity(e.target.value)
-            }
+        if (e.keyCode === 13) {
+            setCity(e.target.value)
         }
-        ;
+    };
 
 
-    return (
-        <div className="App" style={{backgroundImage: `url(${pic})`}}>
+    return (<div className="App" style={{backgroundImage: `url(${pic})`}}>
 
             <div className='overlay'>
                 {weather && (<div className='container'>
@@ -48,7 +43,7 @@ function App() {
                                name='city'
                                onKeyDown={enterKeyPressed}
                         />
-                        <button onClick={(e) => handleUnitsClick(e)}> °С </button>
+                        <button onClick={(e) => handleUnitsClick(e)}> °С</button>
                     </div>
 
                     <div className='section section_temperature'>
@@ -74,8 +69,7 @@ function App() {
                 </div>)}
             </div>
 
-        </div>
-    );
+        </div>);
 }
 
 export default App;

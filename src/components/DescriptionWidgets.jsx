@@ -6,7 +6,11 @@ const DescriptionWidgets = ({weather, units}) => {
 
     const tempUnit = units === 'imperial' ? 'ºF' : 'ºC';
     const windUnit = units === 'imperial' ? 'mph' : 'm/c';
-    const pressureUnit = units === 'imperial' ? 'hPa' : 'Hg'
+
+    /*const pressureUnit = units === 'imperial' ? 'hPa' : 'Hg'*/
+   /*this option has been disabled because the server
+   gives us pressure value only in mBa and no matter you select
+   imperial or metric it's a same*/
 
     const cards = [
         {
@@ -34,7 +38,7 @@ const DescriptionWidgets = ({weather, units}) => {
             icon : <WiBarometer />,
             title: "pressure",
             data: weather.pressure.toFixed(),
-            unit: pressureUnit,
+            unit: 'mBa',
         },
         {
             id: crypto.randomUUID(),
@@ -51,7 +55,7 @@ const DescriptionWidgets = ({weather, units}) => {
             unit: windUnit,
         },
     ];
-
+    console.log(weather)
 
     return (
         <div className="section section_descriptionWidgets">
