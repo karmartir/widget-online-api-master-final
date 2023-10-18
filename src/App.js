@@ -18,6 +18,25 @@ function App() {
         fetchWeatherData()
     }, [units, city]);
 
+    const handleUnitsClick = (e) => {
+        const button = e.currentTarget;
+        const currentUnit = button.innerText.slice(1);
+        const isCelsius = currentUnit === 'C';
+        button.innerText = isCelsius ? '°F' : '°C';
+        setUnits(isCelsius ? 'metric' : 'imperial')
+    };
+
+    const enterKeyPressed = (e) => {
+        /*тут надо подумать, как доработать проверку на "вшивость" нужно блокировать запуск пустой строки*/
+
+            console.log(e)
+            if (e.keyCode === 13) {
+                setCity(e.target.value)
+            }
+        }
+        ;
+
+
     return (
         <div className="App" style={{backgroundImage: `url(${pic})`}}>
 
@@ -27,8 +46,9 @@ function App() {
                         <input type="text"
                                placeholder='Enter the City...'
                                name='city'
+                               onKeyDown={enterKeyPressed}
                         />
-                        <button>°F</button>
+                        <button onClick={(e) => handleUnitsClick(e)}> °С </button>
                     </div>
 
                     <div className='section section_temperature'>
